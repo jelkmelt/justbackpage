@@ -12,9 +12,9 @@ const server=http.createServer(app)
 
 //connecting database
 connectDB()
-// app.get('/',(req, res) =>{
-//       return res.status(200).json({ success: "response from get api" })
-//  })
+app.get('/',(req, res) =>{
+      return res.status(200).json({ success: "response from get api" })
+ })
 
 
 const port = process.env.PORT || 5000;
