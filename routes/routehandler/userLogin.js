@@ -6,6 +6,8 @@ import Admin from '../../database/models/Admin.js'
 export const user_login_post = async(req, res) => {
 
     const { email, name, image, role ,LOGIN_SECRET} = req.body;
+    return res.status(200).json({ status: "success" })
+
     try{if(process.env.LOGIN_SECRET == LOGIN_SECRET){
 
       const userFound = await User.findOne({email:email})

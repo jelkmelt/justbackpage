@@ -17,6 +17,7 @@ import single_post from './routehandler/singlePost.js'
 import post_update from './routehandler/postUpdate.js'
 import post_delete from './routehandler/postDelete.js'
 
+
 ////login and signup
 router.post('/user/login', user_login_post);
 router.post('/admin/login', admin_login_post);
