@@ -33,7 +33,7 @@ router.get('/get/data',checkUser, get_data);
 /////getiing data fro websites
 
 
-router.get('/get/data/:country/:state/:section/:category/:city', website_data);
+router.get('/get/data/:category/:city', website_data);
 router.get('/get/single/post/:id', single_post);
 
 
