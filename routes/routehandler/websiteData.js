@@ -5,10 +5,10 @@ import Post from '../../database/models/Post.js'
 
 export const website_data = async(req, res) => {
 
-const {country,state,section,category,city}=req.params
+const {category,city}=req.params
 
     try{
-        const post = await Post.find({country,state,section,category,city});
+        const post = await Post.find({category,city});
         return res.status(200).json({ data:post })
 
 
