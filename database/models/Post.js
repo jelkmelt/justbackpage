@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'
+import mongoose from "mongoose";
 
 const postSchema = new mongoose.Schema(
   {
@@ -43,29 +43,28 @@ const postSchema = new mongoose.Schema(
       required: true,
     },
     user: {
-        type: mongoose.Schema.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
 
-        ref: 'User'
+      ref: "User",
     },
     country: {
-        type: String,
-        required: true,
-      },
-      state: {
-        type: String,
-        required: true,
-      },
-      city: {
-        type: String,
-        required: true,
-      },
-      placed: { type: Boolean, default: false },
-      preminum: { type: Boolean, default: false },
-      highlighted: { type: Boolean, default: false },
+      type: String,
+      required: true,
+    },
+    state: {
+      type: String,
+      required: true,
+    },
+    city: {
+      type: String,
+      required: true,
+    },
+    placed: { type: Boolean, default: false },
+    preminum: { type: Boolean, default: false },
+    highlighted: { type: Boolean, default: false },
+  },
+  { timestamps: true },
+);
 
-    }
-  ,
-       { timestamps: true })
-
-const Post = mongoose.model('Post', postSchema);
-export default Post
+const Post = mongoose.model("Post", postSchema);
+export default Post;

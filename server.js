@@ -1,10 +1,10 @@
 // Imports
-import express from 'express';
-import http from 'http';
-import dotenv from 'dotenv';
-import cors from 'cors';
-import router from './routes/authroute.js';
-import connectDB from './database/connection.js';
+import express from "express";
+import http from "http";
+import dotenv from "dotenv";
+import cors from "cors";
+import router from "./routes/authroute.js";
+import connectDB from "./database/connection.js";
 
 // Configurations
 dotenv.config();
@@ -19,8 +19,8 @@ app.use(router);
 connectDB();
 
 //test Routes
-app.get('/', (req, res) => {
-  return res.status(200).json({ success: 'response from get api' });
+app.get("/", (req, res) => {
+  return res.status(200).json({ success: "response from get api" });
 });
 
 // Server setup
