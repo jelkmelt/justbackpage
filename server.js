@@ -1,24 +1,31 @@
-import express from'express';
+// Imports
+import express from 'express';
+import http from 'http';
+import dotenv from 'dotenv';
+import cors from 'cors';
+import router from './routes/authroute.js';
+import connectDB from './database/connection.js';
+
+// Configurations
+dotenv.config();
+
+// App setup
 const app = express();
-import http from 'http'
-import dotenv from 'dotenv'
-dotenv.config()
-import cors from 'cors'
-import router  from './routes/authroute.js'
-import connectDB from './database/connection.js'
-app.use(cors())
+app.use(cors());
 app.use(express.json());
-const server=http.createServer(app)
+app.use(router);
 
-//connecting database
-connectDB()
-app.get('/',(req, res) =>{
-      return res.status(200).json({ success: "response from get api" })
- })
+// Database connection
+connectDB();
 
+// Routes
+app.get('/', (req, res) => {
+  return res.status(200).json({ success: 'response from get api' });
+});
 
+// Server setup
+const server = http.createServer(app);
 const port = process.env.PORT || 5000;
-//listening to server
-server.listen(port, () => { console.log(`server run at ${port}`) })
-app.use(router)
-
+server.listen(port, () => {
+  console.log(`server run at ${port}`);
+});
