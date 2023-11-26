@@ -18,7 +18,7 @@ app.use(router);
 // Database connection
 connectDB();
 
-// Routes
+//test Routes
 app.get('/', (req, res) => {
   return res.status(200).json({ success: 'response from get api' });
 });

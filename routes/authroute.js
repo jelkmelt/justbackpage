@@ -1,19 +1,15 @@
 import express  from 'express'
 const router = express.Router();
+
 import checkUser  from '../middleware/checkUser.js'
 import checkAdmin  from '../middleware/checkAdmin.js'
-
 import user_login_post from './routehandler/userLogin.js'
 import admin_login_post from './routehandler/adminLogin.js'
 import admin_signup_post from './routehandler/adminSignup.js'
-
-
 import post_ad from './routehandler/postAd.js'
 import get_data from './routehandler/getData.js'
-
 import website_data from './routehandler/websiteData.js'
 import single_post from './routehandler/singlePost.js'
-
 import post_update from './routehandler/postUpdate.js'
 import post_delete from './routehandler/postDelete.js'
 
@@ -30,7 +26,7 @@ router.post('/post/ad', checkUser,post_ad);
 ///getting data for user and admin
 router.get('/get/data',checkUser, get_data);
 
-/////getiing data fro websites
+/////getiing data for websites
 
 
 router.get('/get/data/:category/:city', website_data);
