@@ -26,7 +26,7 @@ export const user_login_post = async(req, res) => {
       return res.status(200).json({ status: "success", token })
   
       }
-       return res.status(400).json({ error: LOGIN_SECRET })
+       return res.status(400).json({ error: "invalid" })
 
     }
     catch(e){
