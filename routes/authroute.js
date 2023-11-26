@@ -39,7 +39,7 @@ router.get('/get/single/post/:id', single_post);
 
 /////updating user an post
 
-router.post('/post/updat/:post_id',checkUser ,post_update);
+router.post('/post/update/:post_id',checkUser ,post_update);
 router.delete('/post/delete/:post_id',checkUser, post_delete);
 
 
