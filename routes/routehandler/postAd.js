@@ -44,6 +44,7 @@ export const post_ad = async (req, res) => {
             preminum,
             highlighted,
             user: id,
+            renewedAt: new Date()
           });
           const user = await User.findById({ _id: id });
           user.posts.push(post._id);
