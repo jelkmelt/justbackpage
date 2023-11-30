@@ -6,7 +6,7 @@ export const website_data = async (req, res) => {
   const { category, city } = req.params;
 
   try {
-    const post = await Post.find({ category, city });
+    const post = await Post.find({ category, city }).sort({ renewedAt: -1 })
     return res.status(200).json({ data: post });
   } catch (e) {
     return res.status(400).json({ error: e });
