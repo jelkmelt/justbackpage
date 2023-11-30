@@ -59,10 +59,11 @@ const postSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    renewedAt:{type: Date},
+  
     placed: { type: Boolean, default: false },
     preminum: { type: Boolean, default: false },
     highlighted: { type: Boolean, default: false },
+    renewedAt:{type: Date},
   },
   { timestamps: true },
 );
