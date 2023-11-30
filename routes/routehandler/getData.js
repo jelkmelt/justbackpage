@@ -8,7 +8,7 @@ export const get_data = async (req, res) => {
   try {
     const user = await User.findById({ _id: id });
     if (user) {
-      const data = await Post.find({ user: id });
+      const data = await Post.find({ user: id }).sort({ createdAt: -1 })
       return res.status(200).json({ data: data });
     }
     const admin = await Admin.findById({ _id: id });
