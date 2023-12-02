@@ -54,7 +54,7 @@ export const post_ad = async (req, res) => {
     }
 
     const user = await User.findById({ _id: id });
-    if (user.credit < cost) {  /////for development purpose only
+    if (user.credit < cost) {  ///// for development purpose only
       return res.status(400).json({ error: "low balance" });
     }
     user.credit = user.credit - cost;
