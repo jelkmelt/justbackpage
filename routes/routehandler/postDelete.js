@@ -1,10 +1,14 @@
 import User from "../../database/models/User.js";
 import Admin from "../../database/models/Admin.js";
 import Post from "../../database/models/Post.js";
+import deleteImage from "../../utils/cloudnaryImgProcess.js";
+
 export const post_delete = async (req, res) => {
   const id = req.user._id.toString();
   const { post_id } = req.params;
   try {
+    const post = await Post.findById(post_id);
+    deleteImage(post.images)
     const result = await Post.findByIdAndDelete(post_id);
     const user = await User.findById({ _id: id });
     const datas = user.posts.filter((postId) => postId != post_id);
