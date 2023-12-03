@@ -13,7 +13,7 @@ export const admin_login_post = async (req, res) => {
       const match = await bcrypt.compare(password, admin.password);
       if (match) {
         const token = createToken(admin._id);
-        return res.status(200).json({ token: token });
+        return res.status(200).json({ token: token, admin:admin.role});
       }
       return res.status(400).json({ error: "wrong password" });
     }
