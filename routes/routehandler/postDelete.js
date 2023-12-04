@@ -8,7 +8,7 @@ export const post_delete = async (req, res) => {
   const { post_id } = req.params;
   try {
     const post = await Post.findById(post_id);
-    deleteImage(post.images)
+    deleteImage(post.images);
     const result = await Post.findByIdAndDelete(post_id);
     const user = await User.findById({ _id: id });
     const datas = user.posts.filter((postId) => postId != post_id);
