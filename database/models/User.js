@@ -11,7 +11,7 @@ const userSchema = new Schema(
       type: String,
     },
     image: { type: String },
-    role: { type: String },
+    role: { type: String, default: "user" },
     credit: { type: Number, default: 0 },
     posts: [
       {

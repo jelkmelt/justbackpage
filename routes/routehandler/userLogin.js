@@ -11,7 +11,7 @@ export const user_login_post = async (req, res) => {
       const userFound = await User.findOne({ email: email });
       if (userFound) {
         const token = createToken(userFound._id);
-        return res.status(200).json({ status: "success", token ,user:userFound});
+        return res.status(200).json({ status: "success", token , role:userFound.role, credit:userFound.credit});
       }
       const userCreated = await User.create({
         email,
@@ -20,7 +20,7 @@ export const user_login_post = async (req, res) => {
         role,
       });
       const token = createToken(userCreated._id);
-      return res.status(200).json({ status: "success", token ,user:userCreated});
+      return res.status(200).json({ status: "success", token , role:userCreated.role, credit:userCreated.credit});
     }
     return res.status(400).json({ error: "invalid" });
   } catch (e) {
