@@ -17,6 +17,8 @@ import post_update from "./routehandler/postUpdate.js";
 import post_delete from "./routehandler/postDelete.js";
 import post_renew from "./routehandler/renewPost.js";
 import add_payment from "./routehandler/addPayment.js";
+import get_credit from "./routehandler/getCredit.js";
+
 
 
 
@@ -45,6 +47,10 @@ router.post("/post/renew/:post_id", checkUser, post_renew);
 /// payment add
 
 router.post("/admin/payment/:user_id", checkUser, add_payment);
+
+/// payment add
+
+router.get("/get/user/updated/credit",checkUser, get_credit);
 
 
 export default router;
