@@ -20,6 +20,7 @@ import add_payment from './routehandler/addPayment.js';
 import get_credit from './routehandler/getCredit.js';
 
 import Post from '../database/models/Post.js';
+import axios from 'axios';
 
 ////login and signup
 router.post('/user/login', user_login_post);
@@ -53,12 +54,18 @@ router.get('/get/user/updated/credit', checkUser, get_credit);
 
 router.post('/create-payment-intend', async (req, res) => {
   try {
+    if (!req.body.price_amount) {
+      return res.status(400).json({ msg: 'bad request' });
+    }
+
+    const orderId = Math.random().toString().split('.')[1];
+
     const data = {
       price_amount: req.body.price_amount,
       price_currency: 'usd',
       pay_currency: 'btc',
       ipn_callback_url: 'https://nowpayments.io',
-      order_id: '45698564854-56gvdsdt-53456',
+      order_id: orderId,
       order_description: 'Buy credit for premium post',
     };
 
@@ -80,6 +87,7 @@ router.post('/create-payment-intend', async (req, res) => {
       intend: createdIntend.data,
     });
   } catch (error) {
+    console.log(error);
     res.status(400).json({
       msg: 'something went wrong',
     });
