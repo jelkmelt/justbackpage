@@ -1,6 +1,6 @@
-import User from "../../database/models/User.js";
-import Admin from "../../database/models/Admin.js";
-import Post from "../../database/models/Post.js";
+import User from '../../database/models/User.js';
+import Admin from '../../database/models/Admin.js';
+import Post from '../../database/models/Post.js';
 
 export const single_post = async (req, res) => {
   const { id } = req.params;
